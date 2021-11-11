@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Walkthrough video
+[Click on this link](https://www.loom.com/share/b76f8fd281314b78ac3fe16808ae6ce5)
+### Steps taken to generate this app:
+Generate the app:
+```
+rails new --skip-sprockets --skip-turbolinks react_on_rails_webpacker-v6
 
-Things you may want to cover:
+cd react_on_rails_webpacker-v6
+```
 
-* Ruby version
+Add to the Gemfile:
+```ruby
+# Update webpacker version to:
+gem 'webpacker', '6.0.0.rc.6'
 
-* System dependencies
+# Add react on rails
+gem 'react_on_rails', git: 'https://github.com/gscarv13/react_on_rails.git', branch: 'update-webpacker-config'
+```
 
-* Configuration
+Install webpacker:
+```terminal
+./bin/bundle install
 
-* Database creation
+./bin/rails webpacker:install
 
-* Database initialization
+# enter `a` to replace all
+```
 
-* How to run the test suite
+Make sure the version of `@rails/webpacker` on `package.json` match the same version of `webpacker`. 
 
-* Services (job queues, cache servers, search engines, etc.)
+Commit all changes and install react_on_rails:
+```terminal
+# commit all changes
+git add .
+git commit -m "Initial commit"
 
-* Deployment instructions
+bundle exec rails generate react_on_rails:install
+```
 
-* ...
+delete `.browserslistrc`
+
+Add rails dependencies
+```terminal
+yarn add @rails/ujs @rails/activestorage
+```
+
+Run the project
+```terminal
+foreman start -f Procfile.dev
+```
