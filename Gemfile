@@ -52,3 +52,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'react_on_rails', git: 'https://github.com/gscarv13/react_on_rails.git', branch: 'update-webpacker-config'
+gem 'mini_racer', platforms: :ruby
